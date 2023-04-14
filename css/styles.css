@@ -633,6 +633,69 @@ body {
   background-color: var(--footer-social-color);
 }
 
+/* --------FORM FOOTER-------- */
+.container-form-footer {
+  margin-left: 80px;
+}
+
+.wrap-label-btn {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.footer-label span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--brand-color-btn-1);
+  display: block;
+}
+
+.footer-input {
+  width: 264px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid var(--brand-color-btn-1);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  margin-top: 16px;
+  padding-left: 16px;
+  color: var(--brand-color-btn-1);
+}
+
+.footer-input::placeholder {
+  color: var(--brand-color-btn-1);
+}
+
+.form-btn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--brand-color-btn-1);
+  width: 165px;
+  height: 40px;
+  background: var(--logo-web);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  transition: background var(--transition-dur-and-timing),
+    box-shadow var(--transition-dur-and-timing),
+    border-radius var(--transition-dur-and-timing);
+}
+
+.form-btn:hover,
+.form-btn:focus {
+  background: var(--header-contact-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
 /* ----------MODAL WINDOW---------- */
 
 .backdrop {
@@ -656,7 +719,7 @@ body {
 .modal {
   position: absolute;
   width: 408px;
-  height: 576px;
+  height: 584px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -699,58 +762,131 @@ body {
 
 /* ----------FORM---------- */
 .modal-title {
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.02em;
-  color: #2e2f42;
+  color: var(--logo-studio);
+  padding-top: 72px;
+  margin-bottom: 16px;
 }
 
-input {
-  padding: 8px;
-  font-family: inherit;
-  padding-left: 38px;
+.modal-form {
+  /* padding-left: 24px;
+  padding-right: 24px; */
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+  color: var(--color-icon);
+  margin: auto;
+}
+
+.modal-label span {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.input-wrap {
   position: relative;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 8px;
-  padding-left: 24px;
-  padding-right: 24px;
+.modal-input {
+  width: 360px;
+  height: 40px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  margin-bottom: 4px;
+  outline: transparent;
+  padding-left: 38px;
 }
 
-.form-icon {
+.modal-input:focus {
+  border: 1px solid var(--logo-web);
+  border-radius: 4px;
+}
+
+.modal-input:focus + .modal-icon {
+  fill: var(--logo-web);
+}
+
+.modal-icon {
+  position: absolute;
+  left: 16px;
+  top: 11px;
+}
+
+.modal-input:focus + .modal-icon-height {
+  fill: var(--logo-web);
+}
+
+.modal-icon-height {
   position: absolute;
   left: 16px;
   top: 8px;
 }
 
-.modal-comment {
-  resize: none;
+.modal-textarea {
   width: 360px;
   height: 120px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
+  margin-bottom: 15px;
+  outline: transparent;
+  padding: 10px;
+  resize: none;
 }
 
-.modal-checkbox {
-  font-family: "Roboto";
+.modal-textarea::placeholder {
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.04em;
-  color: #8e8f99;
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.wrap-checkbox {
+  margin: auto;
+}
+
+.label-checkbox {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+  color: var(--color-icon);
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.label-checkbox span {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  fill: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .privacy-policy {
-  color: #4d5ae5;
-  text-decoration: underline;
+  color: var(--logo-web);
+}
+
+.input-checkbox:checked + .label-checkbox span {
+  background: var(--header-contact-color);
+  border: 1px solid var(--header-contact-color);
+  border-radius: 2px;
+  fill: var(--button-footer-text);
 }
 
 .modal-button {
@@ -758,12 +894,24 @@ label {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: var(--brand-color-btn-1);
   width: 169px;
   height: 56px;
-  background: #4d5ae5;
+  background: var(--logo-web);
   border: none;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   margin-top: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background var(--transition-dur-and-timing),
+    box-shadow var(--transition-dur-and-timing),
+    border-radius var(--transition-dur-and-timing);
+}
+
+.modal-button:hover {
+  background: var(--header-contact-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 }
