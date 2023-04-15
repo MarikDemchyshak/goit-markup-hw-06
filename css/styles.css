@@ -638,19 +638,19 @@ body {
   margin-left: 80px;
 }
 
-.wrap-label-btn {
-  display: flex;
-  align-items: flex-end;
-  gap: 24px;
-}
-
-.footer-label span {
+.form-text {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--brand-color-btn-1);
   display: block;
+  margin-bottom: 16px;
+}
+
+.form-label-btn {
+  display: flex;
+  gap: 24px;
 }
 
 .footer-input {
@@ -660,7 +660,6 @@ body {
   border: 1px solid var(--brand-color-btn-1);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
-  margin-top: 16px;
   padding-left: 16px;
   color: var(--brand-color-btn-1);
 }
@@ -727,6 +726,7 @@ body {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  padding: 72px 24px 24px;
 }
 
 .button-modal-close {
@@ -761,157 +761,149 @@ body {
 }
 
 /* ----------FORM---------- */
-.modal-title {
+.form-name {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.02em;
   color: var(--logo-studio);
-  padding-top: 72px;
   margin-bottom: 16px;
 }
-
 .modal-form {
-  /* padding-left: 24px;
-  padding-right: 24px; */
   display: flex;
   flex-direction: column;
 }
-
-.modal-label {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.04em;
-  color: var(--color-icon);
-  margin: auto;
+.modal-form-field {
+  margin-bottom: 8px;
 }
-
-.modal-label span {
+.modal-form-message-field {
+  margin-bottom: 16px;
+}
+.modal-form-field-desc {
   display: block;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--color-icon);
   margin-bottom: 4px;
 }
-
-.input-wrap {
+.modal-form-input-wrapper {
   position: relative;
+  display: block;
 }
-
-.modal-input {
-  width: 360px;
+.modal-form-input {
+  width: 100%;
   height: 40px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  margin-bottom: 4px;
-  outline: transparent;
   padding-left: 38px;
+  transition: border var(--transition-dur-and-timing),
+    outline var(--transition-dur-and-timing);
 }
-
-.modal-input:focus {
+.modal-form-input:focus {
+  outline: none;
   border: 1px solid var(--logo-web);
-  border-radius: 4px;
 }
-
-.modal-input:focus + .modal-icon {
+.modal-form-input-icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  margin-left: 16px;
+  transition: fill var(--transition-dur-and-timing);
+}
+.modal-form-input:focus + .modal-form-input-icon {
   fill: var(--logo-web);
 }
-
-.modal-icon {
-  position: absolute;
-  left: 16px;
-  top: 11px;
-}
-
-.modal-input:focus + .modal-icon-height {
-  fill: var(--logo-web);
-}
-
-.modal-icon-height {
-  position: absolute;
-  left: 16px;
-  top: 8px;
-}
-
-.modal-textarea {
-  width: 360px;
+.modal-form-message {
+  display: block;
+  width: 100%;
   height: 120px;
+  padding: 8px 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  margin-bottom: 15px;
-  outline: transparent;
-  padding: 10px;
   resize: none;
+  transition: outline var(--transition-dur-and-timing),
+    border var(--transition-dur-and-timing);
 }
-
-.modal-textarea::placeholder {
-  font-style: normal;
-  font-weight: 400;
+.modal-form-message::placeholder {
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: rgba(46, 47, 66, 0.4);
 }
-
-.wrap-checkbox {
-  margin: auto;
+.modal-form-message:focus {
+  outline: none;
+  border: 1px solid var(--logo-web);
 }
-
-.label-checkbox {
-  font-weight: 400;
+.modal-form-check {
+  position: absolute;
+}
+.modal-form-check-desc {
+  display: flex;
+  align-items: center;
   font-size: 12px;
-  line-height: 1.16;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: var(--color-icon);
-  display: flex;
-  gap: 8px;
-  align-items: flex-end;
+  cursor: pointer;
+  margin-bottom: 24px;
 }
-
-.label-checkbox span {
+.modal-form-fake-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 16px;
   height: 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
-  fill: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-right: 8px;
+  transition: border var(--transition-dur-and-timing);
 }
-
-.privacy-policy {
-  color: var(--logo-web);
+.modal-form-fake-check-icon {
+  opacity: 0;
 }
-
-.input-checkbox:checked + .label-checkbox span {
+.modal-form-check:checked + .modal-form-check-desc > .modal-form-fake-check {
   background: var(--header-contact-color);
   border: 1px solid var(--header-contact-color);
-  border-radius: 2px;
+}
+.modal-form-check:focus + .modal-form-check-desc > .modal-form-fake-check {
+  border: 1px solid var(--header-contact-color);
+}
+.modal-form-check:checked
+  + .modal-form-check-desc
+  > .modal-form-fake-check
+  > .modal-form-fake-check-icon {
+  opacity: 1;
   fill: var(--button-footer-text);
 }
-
-.modal-button {
+.modal-form-check-desc-link {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  text-decoration-line: underline;
+  color: var(--logo-web);
+}
+.modal-form-submit {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: var(--brand-color-btn-1);
-  width: 169px;
-  height: 56px;
   background: var(--logo-web);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border: none;
   border-radius: 4px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  margin-top: 25px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  transition: background var(--transition-dur-and-timing),
-    box-shadow var(--transition-dur-and-timing),
-    border-radius var(--transition-dur-and-timing);
+  min-width: 169px;
+  height: 56px;
+  padding: 16px 32px;
+  margin: 0 auto;
+  transition: background-color var(--transition-dur-and-timing),
+    box-shadow var(--transition-dur-and-timing);
 }
-
-.modal-button:hover {
+.modal-form-submit:hover,
+.modal-form-submit:focus {
   background: var(--header-contact-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
 }
